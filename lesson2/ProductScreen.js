@@ -1,17 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, View, Alert, TouchableOpacity } from "react-native";
-import Car from './Car';
+import Product from "./Product";
 
-const CarScreen = ({ route, navigation }) => {
-    const { product } = route.params;
+const ProductScreen = ({ route, navigation }) => {
+    const product = route?.params?.product;
     console.log(product);
     return (
         <View style={{ padding: 20 }}>
             <Text>CarScreen</Text>
-            <Car item={product} onPress={() => Alert.alert(product.name)} />
-            <View style={{ backgroundColor: product.color, marginTop: 10 }}>
-                <Text>color: {product.color}</Text>
-            </View>
+            <Product item={product} onPress={() => Alert.alert(product.name)} />
 
             <TouchableOpacity
                 style={{ marginTop: 20, backgroundColor: 'red' }}
@@ -23,4 +20,4 @@ const CarScreen = ({ route, navigation }) => {
     )
 }
 
-export default CarScreen;
+export default ProductScreen;

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, Image, Touchable, TouchableOpacity, Platform, Alert } from 'react-native'
-import Car from './Car'
+import Product from './Product'
 
 const cars = [
-    { name: 'mers', speed: 220, color: 'gray', image: 'https://cdn.motor1.com/images/mgl/jvjqN/s1/mercedes-e-klasse-2020.jpg' },
-    { name: 'bmw', speed: 240, color: 'green', image: 'https://www.borusanotomotiv.com/Uploads/2023%20Bas%C4%B1n%20B%C3%BCltenleri/5)%20May%C4%B1s/25.05.2023/yeni-bmw-5-serisi.jpg' },
-    { name: 'toyta', speed: 230, color: 'blue', image: 'https://scene7.toyota.eu/is/image/toyotaeurope/Yeni-Toyota-Corolla-1:Medium-Landscape?ts=0&resMode=sharp2&op_usm=1.75,0.3,2,0' },
+    { name: 'Nike Jordan', price: 493.00, color: 'gray', image: 'https://i5.walmartimages.com/asr/0a34ef4c-d1f5-4627-832f-e4125701d399.14cbe143d89f81352a894ddb0ef5d96a.jpeg' },
+    { name: 'Nike Air Max', price: 897.99, color: 'green', image: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/db683a69-e9ad-476b-972e-a81b8a533df9/air-max-plus-ayakkab%C4%B1s%C4%B1-Flt552.png' },
+    { name: 'Nike Air Jordan', price: 849.69, color: 'blue', image: 'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/1eac4e3d-869d-44f3-abb3-233eea2f68f1/air-jordan-1-high-og-satin-bred-ayakkab%C4%B1s%C4%B1-vLK7RL.png' },
 ]
 
 const ProductsScreen = ({ navigation }) => {
@@ -20,14 +20,14 @@ const ProductsScreen = ({ navigation }) => {
     }
 
     const handleOpenProduct = (item) => {
-        navigation.navigate('CarScreen', { product: item })
+        navigation.navigate('ProductScreen', { product: item })
     }
 
-    const handleOpenCart = () => navigation.navigate('CartScreen')
+    const handleOpenCart = () => navigation.navigate('ProductScreen')
 
     return (
         <View style={{ padding: 20 }}>
-            <Text>Platform: {Platform.OS}</Text>
+            {/* <Text>Platform: {Platform.OS}</Text>
             <Text>Cars</Text>
 
 
@@ -42,13 +42,14 @@ const ProductsScreen = ({ navigation }) => {
 
             <TouchableOpacity onPress={clearCart}>
                 <Text>clear cart</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
 
             <FlatList
                 data={cars}
-                renderItem={({ item }) => <Car item={item} onPress={() => handleOpenProduct(item)} />}
+                renderItem={({ item }) => <Product item={item} onPress={() => handleOpenProduct(item)} />}
                 keyExtractor={(item) => item.name}
                 ListFooterComponent={<View style={{ height: 100 }} />}
+                numColumns={2}
             />
 
             {/* <Car
