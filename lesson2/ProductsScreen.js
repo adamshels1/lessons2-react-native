@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, Image, Touchable, TouchableOpacity, Platform, Alert } from 'react-native'
+import { View, Text, FlatList, Image, Touchable, TouchableOpacity, Platform, SafeAreaView } from 'react-native'
 import Product from './Product'
 import axios from 'axios';
 
@@ -47,7 +47,7 @@ const ProductsScreen = ({ navigation }) => {
     const handleOpenCart = () => navigation.navigate('ProductScreen')
 
     return (
-        <View style={{ padding: 20 }}>
+        <SafeAreaView style={{ padding: 20 }}>
             {/* <Text>Platform: {Platform.OS}</Text>
             <Text>Cars</Text>
 
@@ -83,7 +83,7 @@ const ProductsScreen = ({ navigation }) => {
             /> */}
 
 
-        </View>
+        </SafeAreaView>
     )
 }
 

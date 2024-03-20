@@ -1,12 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View, Alert, TouchableOpacity, Image } from "react-native";
 import Product from "./Product";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const ProductScreen = ({ route, navigation }) => {
     const handleOpenCart = () => navigation.navigate('CartScreen');
 
     return (
-        <View>
+        <SafeAreaView>
 
             <View style={{  height: 44, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20 }}>
 
@@ -47,7 +48,7 @@ const ProductScreen = ({ route, navigation }) => {
             </View>
 
 
-        </View>
+        </SafeAreaView>
     )
 
    
