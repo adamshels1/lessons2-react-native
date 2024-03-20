@@ -29,7 +29,7 @@ const ProductsScreen = ({ navigation }) => {
 
 
     const getProducts = () => {
-        axios.get('http://localhost:3000/products')
+        axios.get('http://192.168.1.103:3000/products')
             .then(res => {
                 console.log(res.data)
                 setProducts(res.data)

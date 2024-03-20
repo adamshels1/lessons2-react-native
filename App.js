@@ -18,8 +18,8 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
-        <Stack.Screen name="ProductScreen" component={ProductScreen} />
-        <Stack.Screen name="CartScreen" component={CartScreen} />
+        <Stack.Screen name="ProductScreen" component={ProductScreen}options={{headerShown: false}} />
+        <Stack.Screen name="CartScreen" component={CartScreen} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
