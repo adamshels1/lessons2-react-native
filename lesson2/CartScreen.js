@@ -3,7 +3,6 @@ import { Text, View, Image, TouchableOpacity, ScrollView, SafeAreaView } from "r
 import Modal from "react-native-modal";
 
 const CartScreen = ({ route, navigation }) => {
-    const asd = () => { navigation.goBack() }
     const [isVisible, setVisible] = useState(false)
 
     const showModal = () => setVisible(true)
@@ -20,16 +19,26 @@ const CartScreen = ({ route, navigation }) => {
                 onSwipeComplete={hideModal}
             >
 
-                <View style={{ backgroundColor: 'red', width: '100%', height: 378 }}>
-                    <Text>sdfdsf</Text>
-
+                <View style={{ marginHorizontal:20,borderRadius:20,backgroundColor: 'white', height: 378 }}>
+                    <View style={{justifyContent: 'center', alignItems: 'center',paddingHorizontal: 12.5,marginTop:40,marginLeft:88,marginRight:88,backgroundColor:'white',width:159,height:214}}>
+                        <View style={{ borderRadius:200,backgroundColor:'#DFEFFF',width:134,height:134}}>
+                            <Image style={{margin:24, width: 86, height: 86 }} source={require('./images/image50.png')}/>
+                        </View>
+                        <Text style={{ textAlign:'center',marginTop:24,color:'#1A2530',fontWeight:'bold',fontSize:20}}>
+                                 Your Payment Is Succesfull
+                        </Text>
+                    </View>
+                    <TouchableOpacity onPress={()=>{hideModal(); }}
+                        style={{marginHorizontal:60,marginTop: 30, justifyContent: 'center', alignItems: 'center', borderRadius: 50,  height: 54, backgroundColor: '#5B9EE1' }}>
+                             <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }}>Back To Shopping</Text>
+                    </TouchableOpacity>
                 </View>
             </Modal>
 
 
             <View style={{ borderRadius: 20, backgroundColor: 'white', marginLeft: 20, marginTop: 8, width: 205, hight: 44, justifyContent: 'space-between', flexDirection: "row" }}>
 
-                <TouchableOpacity onPress={asd}>
+                <TouchableOpacity onPress={navigation.goBack }>
                     <Image style={{ width: 44, height: 44 }} source={require('./images/back.png')} />
                 </TouchableOpacity>
                 <Text style={{ fontStyle: 'Airbnb Cereal App', fontSize: 16, color: '#1A2530', fontWeight: 'bold', marginTop: 12, marginRight: 5 }}>My Cart</Text>
@@ -44,7 +53,7 @@ const CartScreen = ({ route, navigation }) => {
                         <View style={{ marginLeft: 16 }}>
                             <Text style={{ fontSize: 16, fontStyle: 'Airbnb Cereal App', fontWeight: 'bold', color: '#1A2530' }}>Nike Club Max</Text>
                             <Text style={{ fontSize: 14, fontStyle: 'Airbnb Cereal App', fontWeight: 'bold', color: '#1A2530' }}>$64.95</Text>
-                            <View style={{ alignItems: 'cneter', width: 89, hight: 24, flexDirection: "row", marginTop: 12, justifyContent: 'space-between' }}>
+                            <View style={{ alignItems: 'center', width: 89, hight: 24, flexDirection: "row", marginTop: 12, justifyContent: 'space-between' }}>
                                 <Image style={{ width: 24, height: 24 }} source={require('./images/Group61.png')} />
                                 <Text style={{ fontStyle: 'Airbnb Cereal App', fontWeight: 'bold', color: '#1A2530' }}>1</Text>
                                 <Image style={{ width: 24, height: 24 }} source={require('./images/Group60.png')} />
@@ -250,7 +259,7 @@ const CartScreen = ({ route, navigation }) => {
                     onPress={showModal}
                     style={{ marginTop: 24, justifyContent: 'center', alignItems: 'center', borderRadius: 50, width: '100%', height: 54, backgroundColor: '#5B9EE1' }}
                 >
-                    <Text style={{ color: '#FFFFFF', fontSize: 18, fontStyle: 'Airbnb Cereal App', fontWeight: 'bold' }}>Checout</Text>
+                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold' }}>Payment</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>

@@ -10,8 +10,9 @@ const ProductScreen = ({ route, navigation }) => {
         <SafeAreaView>
 
             <View style={{  height: 44, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 20 }}>
-
-                    <Image style={{ width: 44, height: 44 }} source={require('./images/back.png')} />
+                    <TouchableOpacity onPress={()=>navigation.goBack()}>
+                        <Image style={{ width: 44, height: 44 }} source={require('./images/back.png')} />
+                    </TouchableOpacity>
 
                     <Text style={{ fontSize: 20, color: '#1A2530',fontWeight:'bold', }}>Men’s Shoes</Text>
                 <TouchableOpacity onPress={()=>navigation.navigate('CartScreen')}>
@@ -59,36 +60,38 @@ export default ProductScreen;
 
 const styles = StyleSheet.create({
     view3:{
-        fontFamily: 'Airbnb Cereal App',
+       
         minHeight: 300,
         backgroundColor: 'yellow',
         borderRadius: 20,
         marginTop: 16,
         paddingTop: 16,
         paddingLeft: 20,
-        backgroundColor: '#FFFFFF'
+        backgroundColor: 'white'
     },
     text:{
+        
         fontSize: 14,
         fontWeight: 'bold',
         color: '#5B9EE1',
         fontFamily: 'Airbnb Cereal App',
     },
     text2:{
+        fontFamily: 'Airbnb Cereal App',
         fontSize: 24,
         color:'#1A2530'
     },
     text3:{
+        fontFamily: 'Airbnb Cereal App',
         fontSize: 20,
         color:'#1A2530'
     },
     text4:{
+        fontFamily: 'Airbnb Cereal App',
         fontSize:24,
         color:'#707B81'
-    },
-    text5:{
-
     }
+  
 
     
 })

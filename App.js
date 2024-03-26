@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProductsScreen from './lesson2/ProductsScreen';
 import ProductScreen from './lesson2/ProductScreen';
 import CartScreen from './lesson2/CartScreen';
+import SingUp from './lesson2/SingUp';
 // import Home from './src/screens/Home'
 
 
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="SingUp" component={SingUp} />
         <Stack.Screen name="ProductsScreen" component={ProductsScreen} />
         <Stack.Screen name="ProductScreen" component={ProductScreen}options={{headerShown: false}} />
         <Stack.Screen name="CartScreen" component={CartScreen} options={{headerShown: false}}/>
