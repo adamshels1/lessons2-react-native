@@ -18,5 +18,9 @@
             "color": "blue",
             "image": "https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/1eac4e3d-869d-44f3-abb3-233eea2f68f1/air-jordan-1-high-og-satin-bred-ayakkab%C4%B1s%C4%B1-vLK7RL.png"
         }
-    ]
+    ],
+    "signin": {
+        "success": true,
+        "token": "sdafjlw34r2ljdlskfj90sdhfsdf"
+    } 
 }
