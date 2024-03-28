@@ -1,22 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Image, Touchable, TouchableOpacity, Platform, SafeAreaView, TextInput, Alert } from 'react-native'
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 
-
-const SingUp = ({navigation}) => {
+const SingUp = ({ navigation }) => {
     const [isVisible, setVisible] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const togleassword = () => {
-        if(isVisible === true){
+        if (isVisible === true) {
             setVisible(false)
-        }else {
+        } else {
             setVisible(true)
         }
     }
+
+    // const storeData = async () => {
+    //     try {
+    //     //   await AsyncStorage.setItem(
+    //     //     'token',
+    //     //     'sdfsldkfj324324',
+    //     //   );
+
+    //     const value = await AsyncStorage.getItem('token');
+    //     console.log('value', value);
+    //     } catch (error) {
+    //       console.log('error', error)
+    //     }
+    //   };
 
     const singIn = async () => {
         console.log('email', email)
@@ -30,6 +44,12 @@ const SingUp = ({navigation}) => {
 
             // Добавьте здесь обработку ответа, в зависимости от вашего API
             console.log(response.data);
+
+            await AsyncStorage.setItem(
+                'token',
+                response.data.token,
+            );
+            
             navigation.navigate('ProductsScreen')
 
         } catch (error) {
