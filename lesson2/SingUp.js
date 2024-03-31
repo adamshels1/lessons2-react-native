@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Image, Touchable, TouchableOpacity, Platform, SafeAreaView, TextInput, Alert } from 'react-native'
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { useDispatch } from 'react-redux';
+import { loginAction } from './store/userActions';
 
 
 
@@ -9,6 +11,7 @@ const SingUp = ({ navigation }) => {
     const [isVisible, setVisible] = useState(false)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const dispatch = useDispatch()
 
     const togleassword = () => {
         if (isVisible === true) {
@@ -33,6 +36,10 @@ const SingUp = ({ navigation }) => {
     //   };
 
     const singIn = async () => {
+        
+
+       
+
         console.log('email', email)
         console.log('password', password)
 
@@ -45,11 +52,13 @@ const SingUp = ({ navigation }) => {
             // Добавьте здесь обработку ответа, в зависимости от вашего API
             console.log(response.data);
 
-            await AsyncStorage.setItem(
-                'token',
-                response.data.token,
-            );
-            
+            // await AsyncStorage.setItem(
+            //     'token',
+            //     response.data.token,
+            // );
+
+            dispatch(loginAction())
+
             navigation.navigate('ProductsScreen')
 
         } catch (error) {

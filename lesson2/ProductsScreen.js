@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, Image, Touchable, TouchableOpacity, Platform, SafeAreaView } from 'react-native'
 import Product from './Product'
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutAction } from './store/userActions';
 
 // const products = [
 //     { name: 'Nike Jordan', price: 493.00, color: 'gray', image: 'https://i5.walmartimages.com/asr/0a34ef4c-d1f5-4627-832f-e4125701d399.14cbe143d89f81352a894ddb0ef5d96a.jpeg' },
@@ -10,6 +12,11 @@ import axios from 'axios';
 // ]
 
 const ProductsScreen = ({ navigation }) => {
+
+    const dispatch = useDispatch();
+
+    const isSignedIn = useSelector(state => state.userData.isSignedIn)
+
     const [cart, setCart] = useState([])
 
     const [products, setProducts] = useState([])
@@ -60,13 +67,20 @@ const ProductsScreen = ({ navigation }) => {
             </TouchableOpacity>
 */}
 
+            <Text>{isSignedIn ? 'true' : 'false'}</Text>
+
 
             <TouchableOpacity onPress={clearCart}>
                 <Text>clear cart</Text>
-            </TouchableOpacity> 
+            </TouchableOpacity>
 
             <TouchableOpacity onPress={getProducts}>
                 <Text>get products</Text>
+            </TouchableOpacity>
+
+
+            <TouchableOpacity onPress={()=>dispatch(logoutAction())}>
+                <Text>logout</Text>
             </TouchableOpacity>
 
             <FlatList
